@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvlq3bms8cqvm"]
+
+[ext_resource type="Script" path="res://scripts/padle1.gd" id="1_qcujn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xktyx"]
+size = Vector3(0.315, 5, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_674mn"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.266667, 0.407843, 1, 0.513726)
+metallic = 0.35
+metallic_specular = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pr6ly"]
+material = SubResource("StandardMaterial3D_674mn")
+size = Vector2(5, 2.5)
+
+[node name="Padle" type="CharacterBody3D"]
+script = ExtResource("1_qcujn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000576906, 0, 0)
+shape = SubResource("BoxShape3D_xktyx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_pr6ly")

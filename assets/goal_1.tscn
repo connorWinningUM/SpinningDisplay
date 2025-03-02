@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd5lob8t00e32"]
+
+[ext_resource type="Shader" path="res://assets/goal_1.gdshader" id="1_klwuu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m428t"]
+size = Vector3(28.1236, 9, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2upi"]
+render_priority = 0
+shader = ExtResource("1_klwuu")
+shader_parameter/sphere_color = Color(0.87451, 0.0941176, 0.105882, 0.223529)
+shader_parameter/wave_amplitude = 0.01
+shader_parameter/wave_frequency = 20.0
+shader_parameter/wave_speed = 2.728
+shader_parameter/chroma_amount = 0.0
+shader_parameter/stars_enabled = true
+shader_parameter/star_field_scale = 4.377
+shader_parameter/star_size = 0.008
+shader_parameter/star_intensity = 1.0
+shader_parameter/star_axis_speed = 0.051
+shader_parameter/star_move_mode = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_l5pdl"]
+material = SubResource("ShaderMaterial_f2upi")
+size = Vector3(0.1, 9, 20)
+
+[node name="Goal1" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0118, 0, 0)
+shape = SubResource("BoxShape3D_m428t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_l5pdl")

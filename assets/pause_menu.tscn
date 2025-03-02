@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=3 uid="uid://raqn5c0p6qjl"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_oydmi"]
+[ext_resource type="LabelSettings" uid="uid://djse0pfu5jbcc" path="res://assets/pause_label_settings.tres" id="2_hshgv"]
+
+[sub_resource type="SystemFont" id="SystemFont_d164a"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dgqrs"]
+font = SubResource("SystemFont_d164a")
+font_size = 31
+font_color = Color(0.760784, 1, 1, 1)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oydmi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.435294, 0.435294, 0.435294, 0.529412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.208
+anchor_top = 0.093
+anchor_right = 0.792
+anchor_bottom = 0.908
+offset_left = 0.799988
+offset_top = -0.440002
+offset_right = -0.800171
+offset_bottom = -0.640076
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "PAUSE MENU"
+label_settings = ExtResource("2_hshgv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 31
+action_mode = 0
+text = "Resume"
+
+[node name="delay" type="BoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+vertical = true
+
+[node name="Label" type="Label" parent="VBoxContainer/delay"]
+layout_mode = 2
+text = "Display Time Delay"
+label_settings = SubResource("LabelSettings_dgqrs")
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/delay"]
+layout_mode = 2
+max_value = 0.001
+step = 0.0
+value = 0.001
+allow_greater = true
+
+[node name="Sensitivity" type="BoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+vertical = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Sensitivity"]
+layout_mode = 2
+text = "Sensitivity"
+label_settings = SubResource("LabelSettings_dgqrs")
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Sensitivity"]
+layout_mode = 2
+min_value = 1.0
+max_value = 20.0
+step = 0.1
+value = 5.0
+
+[node name="RotationSensitivity" type="BoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+vertical = true
+
+[node name="Label" type="Label" parent="VBoxContainer/RotationSensitivity"]
+layout_mode = 2
+text = "Rotation Speed"
+label_settings = SubResource("LabelSettings_dgqrs")
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/RotationSensitivity"]
+layout_mode = 2
+min_value = 1.0
+max_value = 20.0
+value = 10.0
